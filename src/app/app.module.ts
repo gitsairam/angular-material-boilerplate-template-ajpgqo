@@ -6,6 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { AppMaterialModule } from './app-material/app-material.module';
+import { HeaderComponent } from './header/header.component';
+import { MenuComponent } from './menu/menu.component';
+import { StyleManagerService } from './style-manager.service';
+import { ThemeService } from './theme.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -13,8 +18,10 @@ import { AppMaterialModule } from './app-material/app-material.module';
     FormsModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    HttpClientModule,
   ],
-  declarations: [AppComponent, HelloComponent],
+  providers: [StyleManagerService, ThemeService],
+  declarations: [AppComponent, HelloComponent, HeaderComponent, MenuComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
