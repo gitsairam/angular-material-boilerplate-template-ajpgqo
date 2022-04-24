@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { StyleManagerService } from './style-manager.service';
 import { ThemeService } from './theme.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AmbientLightSensorService } from './ambient-light-sensor.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
     AppMaterialModule,
     HttpClientModule,
   ],
-  providers: [StyleManagerService, ThemeService],
+  providers: [
+    StyleManagerService,
+    ThemeService,
+    AmbientLightSensorService,
+    {
+      provide: Window,
+      useValue: window,
+    },
+  ],
   declarations: [AppComponent, HelloComponent, HeaderComponent, MenuComponent],
   bootstrap: [AppComponent],
 })
